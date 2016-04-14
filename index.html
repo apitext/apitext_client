@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$.getJSON( "http://chrissumption.com/sandbox/sample_tei_project/api/v1/resources", function(data){
+				$("#resources").text(data.resources.response);
+			});
+			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/text", function(data){
+				$("#text").text(data);
+			});
+			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml", function(data){
+				$("#xml").text(data);
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/resources</h3>
+	<p id="resources"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/text</h3>
+	<p id="text"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml</h3>
+	<p id="xml"></p>
+</body>
+</html>
