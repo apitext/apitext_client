@@ -12,6 +12,18 @@
 				$("#text").text(data);
 			});
 			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/markup", function(data){
+				$("#markup").html(data);
+			});
+			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/annotation", function(data){
+				$("#annotation").html(data);
+			});
+			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/teiheader", function(data){
+				$("#teiheader").text(data);
+			});
+			
 			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml", function(data){
 				$("#xml").text(data);
 			});
@@ -24,6 +36,12 @@
 	<p id="resources"></p>
 	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/text</h3>
 	<p id="text"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/markup</h3>
+	<p id="markup"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/annotation</h3>
+	<p id="annotation"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/teiheader</h3>
+	<p id="teiheader"></p>
 	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml</h3>
 	<p id="xml"></p>
 </body>
