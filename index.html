@@ -16,12 +16,20 @@
 				$("#markup").html(data);
 			});
 			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/annotation", function(data){
-				$("#annotation").html(data);
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements", function(data){
+				$("#elements").html(data);
 			});
 			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/teiheader", function(data){
-				$("#teiheader").text(data);
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/persName", function(data){
+				$("#persName").html(data);
+			});
+			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/annotations", function(data){
+				$("#annotations").html(data);
+			});
+			
+			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/teiheaders", function(data){
+				$("#teiheaders").html(data);
 			});
 			
 			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml", function(data){
@@ -38,10 +46,14 @@
 	<p id="text"></p>
 	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/markup</h3>
 	<p id="markup"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/annotation</h3>
-	<p id="annotation"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/teiheader</h3>
-	<p id="teiheader"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements</h3>
+	<p id="elements"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/persName</h3>
+	<p id="persName"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/annotations</h3>
+	<p id="annotations"></p>
+	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/teiheaders</h3>
+	<p id="teiheaders"></p>
 	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml</h3>
 	<p id="xml"></p>
 </body>
