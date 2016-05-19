@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$.getJSON( "http://chrissumption.com/sandbox/sample_tei_project/api/v1/resources", function(data){
-				$("#resources").text(data.resources.response);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/text", function(data){
-				$("#text").text(data);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/markup", function(data){
-				$("#markup").html(data);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements", function(data){
-				$("#elements").html(data);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/persName", function(data){
-				$("#persName").html(data);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/annotations", function(data){
-				$("#annotations").html(data);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/teiheaders", function(data){
-				$("#teiheaders").html(data);
-			});
-			
-			$.get("http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml", function(data){
-				$("#xml").text(data);
-			});
 
-		});
-	</script>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="description" content="apitext : An API that has an appetite for TEI-XML Transcriptions">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+	<title>apitext</title>
+	
 </head>
+
 <body>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/resources</h3>
-	<p id="resources"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/text</h3>
-	<p id="text"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/markup</h3>
-	<p id="markup"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements</h3>
-	<p id="elements"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/persName</h3>
-	<p id="persName"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/annotations</h3>
-	<p id="annotations"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/elements/teiheaders</h3>
-	<p id="teiheaders"></p>
-	<h3>http://chrissumption.com/sandbox/sample_tei_project/api/v1/xml</h3>
-	<p id="xml"></p>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<img src="images/logo_apitext_white_nav.png" />
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+	
+	<div id="main_content_wrap" class="outer container page_content">
+		<div class="search_field">
+			<img src="images/icon_home.png"/>
+			<div class="request">
+				<img src="images/icon_file_folder.png"/>
+				<span class="uri">http://website.com/tei/api/v1/</span>
+				<span id="endpoint" class="uri-request endpoint-parent"></span>
+				<span id="slash" class="uri-request"></span>
+				<span id="child" class="uri-request endpoint-child"></span>
+			</div>
+		</div>
+		<p>
+			<button id="xml" type="button" class="btn btn-primary btn-lg demo-button">xml</button>
+			<button id="resources" type="button" class="btn btn-primary btn-lg demo-button">resources</button>
+			<button id="text" type="button" class="btn btn-primary btn-lg demo-button">text</button>
+			<button id="markup" type="button" class="btn btn-primary btn-lg demo-button">markup</button>
+			<button id="elements" type="button" class="btn btn-primary btn-lg demo-button">elements</button>
+			<button id="persName" type="button" class="btn btn-info btn-lg demo-button">/persName</button>
+			<button id="placeName" type="button" class="btn btn-info btn-lg demo-button">/placeName</button>
+		</p>
+		<div id="response"></div>
+	</div>
+
+	<div id="footer_wrap" class="outer">
+		<footer class="inner">
+			<p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+		</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="javascripts/main.js"></script>
 </body>
 </html>
